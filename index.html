@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/index.css">
+        <script type="module" src="./src/main.jsx"></script>
+        
+    </head>
+    <body id="body" class = " bg-slate-50 font-poppins overflow-x-hidden selection:bg-slate-900 selection:text-slate-100">
+        <header>
+            <nav class = "z-60 fixed flex justify-end w-screen">
+                <div>
+                    <div class = " lg:hidden flex justify-center items-center h-10 w-10 mt-9 mr-6 md:mr-10 md:mt-15 rounded-xl sm:mr-7 sm:mt-12 sm:w-13 sm:h-13 bg-slate-900/20">
+                        <svg viewBox = "2 2 20 20" id = "hamburgerMenu" src= "bars-3.svg" class=" z-50 size-6 sm:size-8 relative stroke-slate-200 stroke-3 ">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.90 h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </div>
+                    <div id = "navBlur" class = "invisible z-50 w-screen h-[120vh] fixed left-0 top-0 bg-black/50 backdrop-blur-xs"></div>
+                    <div id = "navMenu" class = "lg:shadow-xl self-center lg:top-10 xl:top-5 xl:h-10  lg:justify-around lg:items-center lg:ml-12 lg:mr-10 xl:mr-10 xl:ml-17 lg:w-[90vw]  lg:visible lg:rounded-4xl lg:flex lg:bg-slate-50/70 lg:hover:bg-slate-50 lg:h-20  invisible z-50 w-screen left-0 h-[70vh] fixed top-0 text-slate-200 sm:rounded-b-3xl rounded-b-2xl bg-green-800">
+                        <div class = "flex ">
+                            <h1 class = "flex lg:top-0 lg:text-slate-900 md:text-3xl lg:text-xl justify-self-start left-[9vw] lg:left-0 sm:left-[8vw] md:left-[9vw] top-[7vh] relative font-rubik text-2xl font-semibold tracking-tighter">
+                                <div class="relative -top-[0.5vh]"><img src="kanluran-logo.png" alt="" class="size-8 lg:hidden"></div>
+                                <div class="">
+                                    <span class = "text-slate-900 lg:hidden bg-slate-200  font-poppins font-semibold text-[7px] md:text-[2xl] tracking-[0.5vw] absolute -top-[1vh] ">
+                                        BARANGAY
+                                    </span>
+                                    <span class="flex items-center"><img src="kanluran-logo.png" alt="" class="size-7 mr-2 lg:flex hidden">Kanluran</span>
+                                </div>
+                                
+                            </h1>
+                            <div id = "navClose" class = "lg:hidden justify-self-end left-[63vw] md:left-[73vw] top-[7vh] relative ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class = "navlistContainer lg:leading-10 lg:flex lg:top-0 md:leading-25  lg:text-slate-900 lg:gap-10 text-lg md:text-2xl lg:text-xl relative md:left-20 md:top-40 top-20 sm:top-30 lg:left-0 left-10 sm:left-15 leading-15">
+                            <li class = "group/home">
+                                <a href = "#homeSection">Home</a>
+                                <div class = "lg:hidden group-hover/home:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class = "group/summary">
+                                <a href = "#summarySection">Summary</a>
+                                <div class = "lg:hidden group-hover/summary:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class = "group/status">
+                                <a href = "#statusSection">Benefit Status</a>
+                                <div class = "lg:hidden group-hover/status:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class = "group/aboutUs">
+                                <a href = "#aboutUs">About Us</a>
+                                <div class = "lg:hidden group-hover/aboutUs:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                            <li class="md:hidden group/profile">
+                                <div id = "profile" class = "w-40 flex relative items-center">
+                                    <img src  = "heroImage.png" class = "size-8 rounded-full">
+                                    <h2 class = "text-slate-200 truncate  ml-[1vw] ">Admin</h2>
+                                </div>
+                                <div class = "lg:hidden group-hover/profile:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
+                            </li>
+                        </ul>
+
+                        <div class = "lg:flex flex-row relative items-center hidden">
+                            <button onclick="settings()" class="ml-auto lg:flex flex-row relative items-center">
+                                <h2 class = "text-slate-900 truncate">Admin</h2>
+                                <img src  = "heroImage.png" class = " ml-[1vw] size-8 rounded-full">
+                            </button>
+                        </div>
+                        
+
+                        <div id = "settings" class = "hidden  hover:scale-101 transition-all bg-slate-100/90 backdrop-blur-xs  items-center  flex-col text-slate-900 w-90 h-55 absolute top-15 rounded-4xl shadow-2xl right-0">
+                                
+                                <div class = "flex flex-row w-90 justify-end  ">
+                                    <div class = "flex mt-4.5 text-xl">
+                                        <p class = "font-semibold">Settings</p>
+                                    </div>
+                                    <div id = "settingsExit" class = " flex items-center ml-20 w-7 mr-9">
+                                        <div class = "[mask-image:url('x-mark.svg')]  mt-5 mask-contain bg-slate-900 h-5 w-5"></div>
+                                        <div><button>&times;</button></div>
+                                    </div>
+                                    
+                                </div>
+                               
+                                <div class = "flex-col gap-2 flex items-center h-40 justify-center">
+                                    <div>
+                                        <p>Profile</p>
+                                        <div class = "w-70 bg-slate-900 h-0.5"></div>
+                                    </div>
+                                    <div>
+                                        <p>Account</p>
+                                        <div class = "w-70 bg-slate-900 h-0.5"></div>
+                                    </div>
+                                    <div>
+                                        <p>Change Password</p>
+                                        <div class = "w-70 bg-slate-900 h-0.5"></div>
+                                    </div>
+                                    <div class = "flex gap-2 self-end mt-5">
+                                        <div class = "[mask-image:url('arrow-left-rectangle.svg')] mask-no-repeat mask-contain bg-slate-900 w-5 h-5"></div>
+                                        <p>Logout</p>
+                                    </div>
+                                </div>  
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="homeSection" class = "sectionContainer md:h-screen">
+                <!--Hero Image-->
+                <div class = "-z-10 fixed top-0 ">
+                    <img src = "heroImage.png" class = "w-screen  h-[120vh] md:object-[-90vh_-8vh] object-[-107vh_-8vh] xl:object-center sm:object-[-30vw_-8vh] object-cover">
+                    <img src="heroImageoverlay.png" alt=""  class ="w-screen h-screen absolute inset-0 opacity-60">
+                    <div class = "bg-slate-100/20 md:bg-linear-to-t from-green-100/60 to-green-50/10 w-screen h-screen absolute top-0"></div>
+                </div>
+                <div class = "relative sm:h-[61vh] md:h-[25vh] h-[60vh]"></div>
+                
+                <!--Hero Texts and CTA-->
+                <div class = " md:left-15 lg:left-0 lg:text-center  lg:w-screen xl:left-0  md:bg-transparent md:fixed  overflow-y-visible bg-slate-100 rounded-t-[2em] text-black h-[46vh] xl:h-[55vh] flex flex-col justify-center items-center relative">
+                    <div class = "md:hidden absolute sm:h-1.5  h-1 w-[20vw] top-[3vh] bg-slate-900"></div>
+                
+                    <div class = "flex-row justify-center flex items-center">
+                        <div class = "relative font-hanken -top-3">
+                            <h1 class = "bg-green-800 pr-3 lg:pr-5 lg:pl-9 pl-5  text-2xl font-poppins tracking-[0.5em] inline-block text-slate-200">PWD</h1>
+                            <h1 class = "text-5xl  md:mt-0 md:text-7xl tracking-[0.09em]">FINANCIAL
+                                <br><span class = "text-5xl md:text-7xl  md:-top-4 -left-1 tracking-[0.01em] relative -top-2">ASSISTANCE</span>
+                            </h1>
+                            <h1 class = "text-3xl lg:text-4xl lg:-mt-5 md:-mt-7 -mt-4 font-poppins font-semibold">System</h1>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </header>
+
+        <main class="relative -top-[0.1vh] xl:top-[7vh] lg:top-[7vh] md:top-[7vh] sm:top-[0vh]  bg-slate-100">
+            <section id = "summarySection"  class=" sectionContainer md:top-15 top-5 w-screen relative">
+                <!--Benefits Status Text-->
+                <div class="flex flex-col items-center justify-center">
+                    <h2 class=" relative font-poppins top-2 md:top-2 text-[1.05em] md:text-[1.30em] lg:text-3xl ">Status</h2>
+                    <h2 class=" font-hanken text-[1.7em] sm:text-[2em] md:text-[2.3em] lg:text-4xl  ">SUMMARY</h2>
+                    <div class=" md:w-15 bg-slate-900 w-12 h-1 sm:w-13 top-2 lg:top-3 relative mb-15"></div>
+                </div>
+                <!--Benefits Section Contents-->
+                <div class="flex flex-col items-center justify-center">
+                    <!--Status Summary-->
+                    <div class="mb-20 ">
+                        <div class="grid md:grid-cols-2 grid-cols-1 lg:gap-[0.5vw] gap-[1vh]">
+                            <a href="#latestSection" onclick="highlight('.available')">
+                                <div class="group h-[15vh] md:w-[45vw] w-[75vw] bg-white shadow-xl rounded-2xl hover:scale-101 hover:bg-green-500 relative overflow-hidden">
+                                    <div class="font-hanken group-hover:text-white flex items-center justify-center w-full h-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class=" text-green-500 group-hover:text-white size-10 mr-[0.2vw]">
+                                            <path fill-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <div class="flex flex-col justify-start">
+                                            <p class="text-xl">AVAILABLE</p>
+                                            <p class="text-3xl xl:-mt-[2vh] -mt-[1.2vh]">benefits</p>
+                                        </div>
+                                        <div class="flex mb-[1vh]">
+                                            <p class="text-3xl mx-[3vw]">|</p> 
+                                            <p id="Available" class="text-3xl">[]</p> 
+                                        </div>
+                                        <div class="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
+                                            <img src="status-overlay.png" alt="decorative" class="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a href="#incomingSection" onclick="highlight('.unavailable')">
+                                <div class="group h-[15vh] md:w-[45vw] w-[75vw] bg-white shadow-xl rounded-2xl hover:scale-101 hover:bg-red-800 relative overflow-hidden">
+                                    <div class="font-hanken group-hover:text-white flex items-center justify-center w-full h-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="text-red-800 group-hover:text-white size-10">
+                                            <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+                                        </svg>
+                                        <div class="flex flex-col justify-start">
+                                            <p class="text-xl">UNAVAILABLE</p>
+                                            <p class="text-3xl xl:-mt-[2vh] -mt-[1.2vh]">benefits</p>
+                                        </div>
+                                        <div class="flex mb-[1vh]">
+                                            <p class="text-3xl mx-[3vw]">|</p> 
+                                            <p id="Unavailable" class="text-3xl">[]</p> 
+                                        </div>
+                                        <div class="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
+                                            <img src="status-overlay.png" alt="decorative" class="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </a>
+                            
+                            <a href="#latestSection" onclick="highlight('.delayed')">
+                                <div class="group h-[15vh] md:w-[45vw] w-[75vw] hover:bg-amber-500 bg-white shadow-xl rounded-2xl hover:scale-101 relative overflow-hidden">
+                                    <div class="font-hanken hover:text-white flex items-center justify-center w-full h-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="text-amber-500 group-hover:text-white size-8 mr-[0.2vw]">
+                                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8Zm7.75-4.25a.75.75 0 0 0-1.5 0V8c0 .414.336.75.75.75h3.25a.75.75 0 0 0 0-1.5h-2.5v-3.5Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <div class="flex flex-col justify-start">
+                                            <p class="text-xl">DELAYED</p>
+                                            <p class="text-3xl xl:-mt-[2vh] -mt-[1.2vh]">benefits</p>
+                                        </div>
+                                        <div class="flex mb-[1vh]">
+                                            <p class="text-3xl mx-[3vw]">|</p> 
+                                            <p id="Delayed" class="text-3xl">[]</p> 
+                                        </div>
+                                        <div class="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
+                                            <img src="status-overlay.png" alt="decorative" class="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <a href="#previousSection" onclick="highlight('.unclaimed')">
+                                <div class="h-[15vh] md:w-[45vw] w-[75vw] bg-white hover:bg-slate-900 shadow-xl rounded-2xl hover:scale-101 relative overflow-hidden">
+                                    <div class="font-hanken hover:text-white flex items-center justify-center w-full h-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-8 mr-[0.2vw]">
+                                            <path fill-rule="evenodd" d="M6.701 2.25c.577-1 2.02-1 2.598 0l5.196 9a1.5 1.5 0 0 1-1.299 2.25H2.804a1.5 1.5 0 0 1-1.3-2.25l5.197-9ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 1 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <div class="flex flex-col justify-start">
+                                            <p class="text-xl">UNCLAIMED</p>                                            
+                                            <p class="text-3xl xl:-mt-[2vh] -mt-[1.2vh]">benefits</p>
+                                        </div>
+                                        <div class="flex mb-[1vh]">
+                                            <p class="text-3xl mx-[3vw]">|</p> 
+                                            <p id="Unclaimed" class="text-3xl">[]</p> 
+                                        </div>
+                                        <div class="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
+                                            <img src="status-overlay.png" alt="decorative" class="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="statusSection" class="sectionContainer mt-20">
+                <div class="flex flex-col items-center justify-center">
+                    <h2 class=" relative font-poppins top-2 md:top-2 text-[1.05em] md:text-[1.30em] lg:text-3xl ">Benefits</h2>
+                    <h2 class=" font-hanken text-[1.7em] sm:text-[2em] md:text-[2.3em] lg:text-4xl  ">STATUS</h2>
+                    <div class=" md:w-15 bg-slate-900 w-12 h-1 sm:w-13 top-2 lg:top-3 relative mb-15"></div>
+                </div>
+
+                <div id="latestSection" class=" gap-2 mb-10 sm:mb-15 flex items-center relative ml-[6vw]">
+                    <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Latest</h2>
+                    <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">BENEFITS</h2>
+                    <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                </div>
+            
+
+                <!--Table Manipulation Tools-->
+                <div id="LatestTable">
+                    
+                </div>
+            
+                <!--Previous Benefit Status-->
+
+                <div class="mt-[10vh]" id="previousSection">
+                    <div class=" gap-2 mb-10 sm:mb-15 flex items-center relative left-[6vw]">
+                        <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Previous</h2>
+                        <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">BENEFITS</h2>
+                        <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                    </div>
+                
+                    <div class="flex xl:no-wrap justify-center relative gap-2 mb-10 md:top-[0vh]  ">
+                        
+                        <h2 id="month" class="xl:text-4xl lg:text-3xl text-2xl font-hanken relative">Month</h2>
+                        <h2 id="year" class="xl:text-4xl lg:text-3xl text-2xl font-hanken relative">Year</h2>
+                        
+                    </div>
+
+                    <!--Table Manipulation Tools-->
+                    <div class = "flex lg:flex-row flex-col lg:items-center relative left-[6vw]">
+                        <div class="xl:mr-[3vw]">
+                            <form>
+                                <fieldset>
+                                    <input id="searchNamePrev" type ="text" placeholder="Search Name" class ="pl-6 rounded-4xl xl:w-[40vw] md:w-[40vw] w-[60vw] h-8 focus:outline-slate-900 bg-white inset-ring-1 inset-ring-slate-200">
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row lg:space-x-[1vw] space-x-[3vw] xl:mt-0 xl:ml-[12vw] lg:ml-[8vw] ml-[1vw] mt-[2vh] md:items-center">
+                            <div class="flex md:justify-end mt-2 md:mt-0 xl:ml-[2.5vw]">
+                                <p class="md:text-[1em] text-[1.1em] font-hanken my-auto mr-[1vw]">Month and Year: </p>
+                                <form>
+                                    <input type="month" id="date" name="date" class="mt-1 block xl:w-[13vw] w-full border p-2 rounded-md"/>
+                                </form>
+                            </div>
+
+                            <div class="flex space-x-[2vw] md:ml-0 md:mt-0 mt-[2vh]">
+                                <div class="font-bold lg:text-[0.9em] xl:text-[1em]" id="">
+                                    <!--adminData filters will be set here-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Main Table for Previous Benefit Status-->
+                    <div class="mt-[3vh]">
+                        <div class="overflow-y-auto lg:overflow-x-hidden overflow-x-auto h-[50vh] w-[87.1vw] relative mx-auto rounded-2xl">
+                            <table class="border-collapse shadow-2xs bg-slate-50 w-[87vw] text-wrap font-poppins text-center" id="prevTable">
+                                <thead class="sticky top-0 bg-green-800 font-hanken text-white">
+                                    <tr class="p-0">
+                                    <td class="md:flex items-center justify-center hidden">Transaction Number</td>
+                                    <td class="">Recipient Name</td>
+                                    <td class="md:flex items-center justify-center hidden">ID Number</td>
+                                    <td class="">Benefits</td>
+                                    <td class="">Date of Claim</td>
+                                    <td class="">Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Incoming Benefits-->
+
+                <div id="incomingSection" class=" mt-20 pb-40">
+                    <div class=" gap-2 mb-10 sm:mb-15 flex items-center relative ml-[6vw]">
+                        <h2 class=" relative font-poppins  text-lg md:text-[1.30em] lg:text-3xl ">Incoming</h2>
+                        <h2 class=" font-hanken text-lg  sm:text-[2em] md:text-[2.3em]  ">BENEFITS</h2>
+                        <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
+                    </div>
+                
+
+                    <!--Table Manipulation Tools-->
+                    <div>
+                        <div class = "flex lg:flex-nowrap flex-wrap w-[85vw] relative mb-5 items-center left-[6vw] lg:mt-[5vh]">
+
+                            <div class="flex-1">
+                                <form>
+                                    <fieldset>
+                                        <input id="searchNameIncoming" type = "text" placeholder="Search Name" class ="pl-6 rounded-4xl xl:w-[40vw] md:w-[40vw] w-[60vw] h-8 focus:outline-slate-900 bg-white inset-ring-1 inset-ring-slate-200">
+                                    </fieldset>
+                                </form>
+                            </div>
+                            
+                            <div class="flex space-x-[2vw] md:ml-0 ml-[2vw] md:mt-0">
+                                <div class=" font-bold lg:text-[0.9em] xl:text-[1em]" id="parentDivIncoming">
+                                    <!--AdminData will provide filters here-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                
+                    <div>
+                        <div class="overflow-y-auto lg:overflow-x-hidden overflow-x-auto h-[50vh] w-[87.1vw] relative mx-auto rounded-2xl">
+                            <table class="border-collapse shadow-2xs bg-slate-50 w-[87vw] text-wrap font-poppins text-center" id="incomingTable">
+                                <thead class="sticky top-0 bg-green-800 font-hanken text-white">
+                                    <tr class="p-0">
+                                    <td class="md:flex items-center justify-center hidden">Transaction Number</td>
+                                    <td class="">Recipient Name</td>
+                                    <td class="">ID Number</td>
+                                    <td class=" md:flex items-center justify-center hidden">Benefits</td>
+                                    <td class="">Date of Claim</td>
+                                    <td class="">Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--Data Provided by JS-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Recepient Information-->
+            <!--Blur-->
+            <div id = "Blur" class = "invisible z-50 w-screen h-[120vh] fixed left-0 top-0 bg-slate-900 opacity-70 backdrop-blur-xs overflow-hidden"></div>
+            <!--Modal Background Recipient--> <!--Connected to pwd user personal account-->
+            <div onclick="closeModal()" id="recipientModal" class="invisible h-full w-full z-50 fixed inset-0">
+                <div onclick="event.stopPropagation()" class="fixed top-[12vh] lg:top-[20vh] bottom-[15vh] lg:bottom-[20vh] left-[15vw] right-[15vw] flex flex-col lg:flex-row space-y-[1vh] z-60 lg:text-[1.2em]">
+                    <div class="flex flex-1/2 flex-col space-y-[1vh]">
+                        <div class="bg-white flex-1/5 rounded-2xl flex p-1">
+                            <div id="modalName" class=" flex-1/3 flex items-center pl-[1vw] font-bold">[Name]</div>
+                            <div class="flex-1/16 flex items-center justify-center p-[2vw] lg:p-[1vw]">
+                                <div class="border-2 size-[25vw] md:size-[15vw] lg:size-[10vw] border-dashed rounded-2xl "></div>
+                                <button onclick="closeModal()" class="text-gray-500 hover:text-black text-2xl relative -top-[6vh] lg:-top-[8vh] -right-[1vw]">&times;</button>
+                            </div>
+                        </div>
+                        <div class="bg-white flex-1/2 rounded-2xl flex flex-col p-2">
+                            <div class="flex-1/64 font-bold mr-4">Personal Information
+                                <div class="border"></div>
+                            </div>
+                            <div class="flex-2/3 flex">
+                                <div class="flex-1 space-y-1">
+                                    <p class="font-bold w-fit">ID <br><span id="modalIDNumber" class="font-normal">[ID Number]</span></p>
+                                    <p class="font-bold w-fit">Birthday <br><span id="modalBirthday" class="font-normal">[Birthday]</span></p>
+                                    <p class="font-bold w-fit">Address <br><span id="modalAddress" class="font-normal">[Address]</span></p>
+                                </div>
+                                <div class="flex-1 space-y-1">
+                                    <p class="font-bold w-fit">Contact <br><span id="modalContact" class="font-normal">[Contact]</span></p>
+                                    <p class="font-bold w-fit">Disability <br><span id="modalDisability" class="font-normal">[Disability]</span></p>
+                                    <p class="font-bold w-fit">Status <br><span id="modalStatus" class="font-normal">[Status]</span></p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    
+                    <div class="bg-slate-100/70 flex-1/3 lg:h-[60vh] xl:h-[50vh] rounded-2xl flex flex-col lg:ml-2">
+                        <div class="bg-white flex flex-col flex-2/3 rounded-2xl p-2">
+                            <div class="flex-1/64 font-bold">Transaction Details
+                                <div class="border"></div>
+                            </div>
+                            <div class="flex-2/3 flex">
+                                <div class="flex-1">
+                                    <p class="font-bold w-fit">Transaction No<br><span id="modalTransactionNo" class="font-normal">[Transaction No]</span></p>
+                                    <p class="font-bold w-fit">Benefit Name <br><span id="modalBenefit" class="font-normal">[Benefit Name]</span></p>
+                                    <p class="font-bold w-fit">Type <br><span id="modalType" class="font-normal">[Type]</span></p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-bold w-fit"><span id="changeClaim">Date of Claim</span><br><span id="modalDate" class="font-normal ">[Claim Date]</span></p>
+                                    <p class="font-bold w-fit">Amount <br><span id="modalAmount" class="font-normal ">[Amount]</span></p>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="flex-1 flex justify-end items-end">
+                            <button class="hidden bg-green-800 text-start text-slate-100 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-white active:text-slate-900" id="recieptButton" >Reciept</button>
+                            <button class="hidden bg-green-800 text-start text-slate-100 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-white active:text-slate-900" id="initialClaim" onclick="confirmationBox()">Claim</button>
+                            <button class="bg-slate-200 text-start text-green-900 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-green-800 active:text-white" onclick="closeModal()">Cancel</button>
+                        </div>
+                    </div>
+
+                    <!--Confirmation Box-->
+                    <div id = "confirmationBlur" class = "invisible z-50 w-screen h-[120vh] fixed left-0 top-0 bg-gray-500/10 opacity-70 backdrop-blur-xs overflow-hidden" onclick="closeConfirmation()"></div>
+                    <div id="shadow" class="z-60 invisible fixed right-[25.5vw] left-[25.5vw] top-[35vh] bottom-[37vh] lg:top-[35vh] lg:bottom-[35vh] lg:right-[35vw] lg:left-[35vw] bg-gray-200/60 shadow-2xl opacity-60 backdrop-blur-xs border-2 border-white rounded-4xl p-1"></div>
+                    <div id="box" class="z-60 invisible fixed right-[27vw] left-[27vw] top-[37vh] bottom-[39vh] lg:top-[38vh] lg:bottom-[38vh] lg:right-[36vw] lg:left-[36vw] flex flex-col justify-center items-center bg-white rounded-4xl shadow-2xl">
+                        <div class=" size-7 lg:size-10 bg-blue-200 flex justify-center items-center rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-6 lg:size-9 text-blue-800">
+                                <path fill-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-6 3.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM7.293 5.293a1 1 0 1 1 .99 1.667c-.459.134-1.033.566-1.033 1.29v.25a.75.75 0 1 0 1.5 0v-.115a2.5 2.5 0 1 0-2.518-4.153.75.75 0 1 0 1.061 1.06Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="mt-[1vh] font-bold">Confirm claim for <br><span id="modalConfirm" class="flex justify-center"></span></p>
+                        </div>
+                        <div class="mt-[2vh] flex w-full justify-between px-[6vw] xl:px-[8vw]">
+                            <button class="border-2 border-gray-500 rounded-xl p-1 hover:opacity-60 active:opacity-100" onclick="closeConfirmation()">Cancel</button>
+                            <button class="border-2 border-blue-900 bg-blue-800 rounded-xl p-1 px-2 hover:opacity-60 active:opacity-100" id="claimButton" onclick="closeConfirmation()">Claim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer id="aboutUs" class ="sectionContainer text-slate-100 bg-green-800 overflow-y-visible relative">
+            <div class="h-20 bg-slate-100"></div>
+            <div class = "flex flex-col md:flex-row text-poppins font-semibold lg:mx-[8vw] mx-[6vw] relative lg:-top-[1vh] top-[4vh] xl:pt-[10vh] lg:pt-[6vh] md:pt-[5vh] md:pb-5 pb-[3vh] mb-[3vh]">
+                
+                <div class="flex flex-1 lg:items-center justify-center">
+                    <img src="kanluran-logo.png" alt="" class="size-30 lg:mr-[9vw] bg-white rounded-full lg:mb-0 mb-[2vh]">
+                </div>
+                <div class="flex flex-col flex-1 text-[2em]">
+                    <div class="flex items-start w-full relative font-hanken">CONTACT US</div>
+                    <div class="flex flex-col text-[0.4em] mt-[3vh]">
+                        <div class="flex items-center flex-1 pr-[2vw]">
+                            <div>
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lg:size-[2.5vw] sm:size-[4vw] size-[8vw] rounded-full bg-slate p-[0.3em] text-slate-900 bg-white">
+                                <path fill-rule="evenodd" d="m3.855 7.286 1.067-.534a1 1 0 0 0 .542-1.046l-.44-2.858A1 1 0 0 0 4.036 2H3a1 1 0 0 0-1 1v2c0 .709.082 1.4.238 2.062a9.012 9.012 0 0 0 6.7 6.7A9.024 9.024 0 0 0 11 14h2a1 1 0 0 0 1-1v-1.036a1 1 0 0 0-.848-.988l-2.858-.44a1 1 0 0 0-1.046.542l-.534 1.067a7.52 7.52 0 0 1-4.86-4.859Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="lg:ml-[1vw] ml-[3vw]">
+                                Mobile: (+63) 9874-213-1234<br>
+                                Landline: (049) 123-2331<br>
+                                Emergency: (+63) 9874-213-1234
+                            </div>      
+                        </div>
+                        <div class="flex flex-2 items-center lg:mt-0 mt-[2vh]">
+                            <div>
+                                <a href="https://www.google.com/maps/place/Kanluran+Barangay+Hall/@14.3134069,121.1050175,17z/data=!3m1!4b1!4m6!3m5!1s0x3397d9b9fdcbb529:0xf49154d1ce8773bd!8m2!3d14.3134017!4d121.1075924!16s%2Fg%2F1tdmbf4x?entry=ttu&g_ep=EgoyMDI1MDYxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lg:size-[2.5vw] sm:size-[4vw] size-[8vw] rounded-full bg-slate p-[0.3em] text-slate-900 bg-white hover:text-white hover:bg-green-800 hover:border-0">
+                                    <path fill-rule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd" />
+                                    </svg>   
+                                </a>
+                            </div>
+                            <div class="lg:ml-[1vw] ml-[3vw] md:w-full sm:w-[40vw] w-[50vw]">
+                                Address: 8475+928, Leon Arcillas
+                                Blvd, Kanluran, City of Santa Rosa, 
+                                4026 Laguna
+                            </div>      
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-2 flex md:mt-0 mt-[5vh]">
+                    <div class="flex-1 flex-col space-y-[1vh] lg:mx-[3vw]">
+                        <div class="font-hanken text-[1.3em]">GOVERMENT LINKS</div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://op-proper.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Office Of The President
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://www.ovp.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Office Of The Vice President
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://legacy.senate.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Senate Of The Philippines
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://www.congress.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> House Of The Representatives
+                            </a>
+                        </div>
+            
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="https://sb.judiciary.gov.ph/" target="_blank">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Sandigangbayan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-1 flex flex-col space-y-[1vh] ml-[3vw]">
+                        <div class="font-hanken text-[1.3em]">QUICK LINKS</div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Home
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Officials
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> News
+                            </a>
+                        </div>
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> Logins
+                            </a>
+                        </div>
+            
+                        <div class="text-[0.8em] w-fit">
+                            <a class="flex items-center hover:text-[1.1em] hover:border-b-2 hover:border-b-slate-200 transition-all duration-100 ease-in-out" href="">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                <path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg> About Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center h-[10vh] bg-green-900">
+                <div class="flex items-center flex-1 pl-[5vw] space-x-[3vw]">
+                    <h1 class = "top-2  relative font-hanken text-2xl md:text-3xl font-semibold tracking-tighter">
+                    <span class = "text-slate-900 bg-slate-100 font-poppins font-semibold text-[7px] md:text-[10px] tracking-[0.5vw] absolute -top-[1vh] ">
+                        BARANGAY
+                    </span>
+                    Kanluran
+                    </h1>
+                    <div>
+                       <a target = "_blank" href = "https://www.facebook.com/profile.php?id=61555148279432">
+                            <img src = "Facebook_Logo_Secondary.png" class = "size-4 md:size-8" >
+                        </a> 
+                    </div>
+                    <div>
+                       <a target = "_blank" href = "https://www.facebook.com/messages/t/203853872808930">
+                            <img src = "Messenger_Icon_Secondary_White.png" class = " md:size-8 size-4">
+                        </a> 
+                    </div>
+                    <div>
+                       <a target = "_blank" href = "mailto:brgykanluran2024@gmail.com">
+                        <img src = "gmail.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class = "md:size-9.5 size-6 brightness-4000 ">
+                        </a> 
+                    </div>
+                    
+                </div>
+                <div class="flex flex-1 lg:pr-[5vw] justify-end">
+                    <h6 class = "md:text-[1em] text-[0.8em] lg:pl-0 pl-[10vw] text-gray-200">&copy; 2025 Barangay Kanluran. All rights reserved.</h6>
+                </div>          
+            </div>
+        </footer>
+    </body>
+</html>
