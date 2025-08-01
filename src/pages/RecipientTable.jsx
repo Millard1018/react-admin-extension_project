@@ -1,4 +1,10 @@
-function RecipientTable({data, onSelect, nameSearch, benefit, status}) {
+import { useState } from "react";
+
+function RecipientTable({data, onSelect, nameSearch, date, benefit, status}) {
+
+    const [statusCount, setStatusCount] = useState({
+        
+    })
 
     function trClassHelper(status) {
         if (status === "Available") {
@@ -64,15 +70,32 @@ function RecipientTable({data, onSelect, nameSearch, benefit, status}) {
         }
     }
 
+    function dateHelper(date) {
+        if(date) {
+           const months = ["January", "Febrauary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const [year, month] = date.split("-");
+        const monthIndex = parseInt(month, 10) -1;
+        const monthYear = `${months[monthIndex]} ${year}`
+        document.getElementById("month").textContent = months[monthIndex] //katamaran toh pero ok na yan
+        document.getElementById("year").textContent = year
+        return monthYear 
+        } else {
+            return null
+        }
+    }
+
 
     const filteredTable = data.filter(row => {
-        const matchesSearch = row.getName().toLowerCase().includes(nameSearch ? nameSearch.toLowerCase().trim() : "");
+        const matchSearch = row.getName().toLowerCase().includes(nameSearch ? nameSearch.toLowerCase().trim() : "");
 
-        const matchesBenefit = benefit === null || benefit === "All" ? true : row.getBenefit() === benefit;
+        const stringDate = dateHelper(date);
+        const matchDate = stringDate === null ? true : row.getDate() === stringDate;
 
-        const matchesStatus = status === null || status === "All" ? true : row.getStatus() === status;
+        const matchBenefit = benefit === null || benefit === "All" ? true : row.getBenefit() === benefit;
 
-        return matchesSearch && matchesBenefit && matchesStatus;
+        const matchStatus = status === null || status === "All" ? true : row.getStatus() === status;
+
+        return matchSearch && matchDate && matchBenefit && matchStatus;
     });
 
     return (

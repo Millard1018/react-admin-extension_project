@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { latestTableData } from "../adminData.js";
+import { prevTableData } from "../adminData.js";
 import RecipientModal from "./RecipientModal.jsx";
 import RecipientTable from "./RecipientTable.jsx";
 import Filter from "./Filter.jsx";
 
-function LatestTable() {
+function PreviousTable() {
     const [selectedUser, setSelectedUser] = useState(null);
     const [search, setSearch] = useState(null)
+    const [selectedDate, setSelectedDate] = useState(null)
     const [selectedBenefit, setSelectedBenefit] = useState(null);
     const [selectedStatus, setSelectedStatus] = useState(null)
 
@@ -16,8 +17,8 @@ function LatestTable() {
 
     return (
         <>
-            <Filter tableType={"Latest"} onSearch={setSearch} search={search} onSelectStatus={setSelectedStatus} status={selectedStatus} onSelectBenefit={setSelectedBenefit} benefit={selectedBenefit} />
-            <RecipientTable data={latestTableData} onSelect={setSelectedUser} nameSearch={search} benefit={selectedBenefit} status={selectedStatus} />
+            <Filter tableType={"Previous"} onSearch={setSearch} search={search} onDate={setSelectedDate} date={selectedDate} onSelectStatus={setSelectedStatus} status={selectedStatus} onSelectBenefit={setSelectedBenefit} benefit={selectedBenefit} />
+            <RecipientTable data={prevTableData} onSelect={setSelectedUser} nameSearch={search} date={selectedDate} benefit={selectedBenefit} status={selectedStatus} />
             {selectedUser && (
                 <RecipientModal data={selectedUser} onClose={() => setSelectedUser(null)}/>
             )}
@@ -25,4 +26,4 @@ function LatestTable() {
     )
 }
 
-export default LatestTable
+export default PreviousTable

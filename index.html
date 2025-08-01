@@ -135,7 +135,7 @@
         <main class="relative -top-[0.1vh] xl:top-[7vh] lg:top-[7vh] md:top-[7vh] sm:top-[0vh]  bg-slate-100">
             <section id = "summarySection"  class=" sectionContainer md:top-15 top-5 w-screen relative">
                 <!--Benefits Status Text-->
-                <div class="flex flex-col items-center justify-center">
+                <div class="flex flex-col items-center justify-center mb-10">
                     <h2 class=" relative font-poppins top-2 md:top-2 text-[1.05em] md:text-[1.30em] lg:text-3xl ">Status</h2>
                     <h2 class=" font-hanken text-[1.7em] sm:text-[2em] md:text-[2.3em] lg:text-4xl  ">SUMMARY</h2>
                     <div class=" md:w-15 bg-slate-900 w-12 h-1 sm:w-13 top-2 lg:top-3 relative mb-15"></div>
@@ -247,10 +247,8 @@
                     <div class=" md:w-15 bg-slate-900 w-12 h-0.5 sm:w-13 "></div>
                 </div>
             
-
-                <!--Table Manipulation Tools-->
                 <div id="LatestTable">
-                    
+                    <!--React will render the filter and table here-->
                 </div>
             
                 <!--Previous Benefit Status-->
@@ -269,52 +267,8 @@
                         
                     </div>
 
-                    <!--Table Manipulation Tools-->
-                    <div class = "flex lg:flex-row flex-col lg:items-center relative left-[6vw]">
-                        <div class="xl:mr-[3vw]">
-                            <form>
-                                <fieldset>
-                                    <input id="searchNamePrev" type ="text" placeholder="Search Name" class ="pl-6 rounded-4xl xl:w-[40vw] md:w-[40vw] w-[60vw] h-8 focus:outline-slate-900 bg-white inset-ring-1 inset-ring-slate-200">
-                                </fieldset>
-                            </form>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row lg:space-x-[1vw] space-x-[3vw] xl:mt-0 xl:ml-[12vw] lg:ml-[8vw] ml-[1vw] mt-[2vh] md:items-center">
-                            <div class="flex md:justify-end mt-2 md:mt-0 xl:ml-[2.5vw]">
-                                <p class="md:text-[1em] text-[1.1em] font-hanken my-auto mr-[1vw]">Month and Year: </p>
-                                <form>
-                                    <input type="month" id="date" name="date" class="mt-1 block xl:w-[13vw] w-full border p-2 rounded-md"/>
-                                </form>
-                            </div>
-
-                            <div class="flex space-x-[2vw] md:ml-0 md:mt-0 mt-[2vh]">
-                                <div class="font-bold lg:text-[0.9em] xl:text-[1em]" id="">
-                                    <!--adminData filters will be set here-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="PreviousTable"></div>
                     
-                    <!--Main Table for Previous Benefit Status-->
-                    <div class="mt-[3vh]">
-                        <div class="overflow-y-auto lg:overflow-x-hidden overflow-x-auto h-[50vh] w-[87.1vw] relative mx-auto rounded-2xl">
-                            <table class="border-collapse shadow-2xs bg-slate-50 w-[87vw] text-wrap font-poppins text-center" id="prevTable">
-                                <thead class="sticky top-0 bg-green-800 font-hanken text-white">
-                                    <tr class="p-0">
-                                    <td class="md:flex items-center justify-center hidden">Transaction Number</td>
-                                    <td class="">Recipient Name</td>
-                                    <td class="md:flex items-center justify-center hidden">ID Number</td>
-                                    <td class="">Benefits</td>
-                                    <td class="">Date of Claim</td>
-                                    <td class="">Status</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
 
                 <!--Incoming Benefits-->

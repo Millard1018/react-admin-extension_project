@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function Filter({tableType, onSearch, search, onSelectBenefit, onSelectStatus}) {
+function Filter({tableType, onSearch, search, onDate, date, onSelectBenefit, benefit, onSelectStatus, status}) {
 
     const [filter, setFilter] = useState(false);
     const [benefitFilter, setBenefitFilter] = useState(false);
@@ -12,7 +12,7 @@ function Filter({tableType, onSearch, search, onSelectBenefit, onSelectStatus}) 
             <div className="flex md:justify-end mt-2 md:mt-0 xl:ml-[2.5vw]">
                 <p className="md:text-[1em] text-[1.1em] font-hanken my-auto mr-[1vw]">Month and Year: </p>
                 <form>
-                    <input type="month" id="date" name="date" className="mt-1 block xl:w-[13vw] w-full border p-2 rounded-md"/>
+                    <input type="month" value={date} onChange={e => onDate(e.target.value)} name="date" className="mt-1 block xl:w-[13vw] w-full border p-2 rounded-md"/>
                 </form>
             </div>
             )
@@ -22,7 +22,7 @@ function Filter({tableType, onSearch, search, onSelectBenefit, onSelectStatus}) 
     function statusHelper(tableType) {
         if(tableType === "Latest") {
             return ( <div>
-                        <div className="flex items-center" onClick={() => setStatusFilter(prev => !prev)} ><span> Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`${statusFilter ? "" : "rotate-180"} size-4 ml-auto`}>
+                        <div className="flex items-center" onClick={() => setStatusFilter(prev => !prev)} ><span>{status ? status : "Filter Status"}</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`${statusFilter ? "" : "rotate-180"} size-4 ml-auto`}>
                             <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                             </svg>
                         </div>
@@ -42,7 +42,7 @@ function Filter({tableType, onSearch, search, onSelectBenefit, onSelectStatus}) 
         if(tableType === "Previous") {
             return (   
                     <div>
-                        <div className="flex items-center" onClick={() => setStatusFilter(prev => !prev)} ><span > Filter Status</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4 ml-auto">
+                        <div className="flex items-center" onClick={() => setStatusFilter(prev => !prev)} ><span >{status ? status : "Filter Status"}</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4 ml-auto">
                                 <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                                 </svg>
                             </div>
@@ -87,7 +87,7 @@ function Filter({tableType, onSearch, search, onSelectBenefit, onSelectStatus}) 
                                     </svg>Filter
                                 </div>
                                 <div className={`${filter ? "" : "hidden"}  absolute top-[3.5vh] lg:-left-[2vw] md:-left-[5vw] xl:w-[12vw] lg:w-[14vw] sm:w-[20vw] flex flex-col bg-white rounded-2xl p-2`}>
-                                    <div className="flex items-center" onClick={() => setBenefitFilter(prev => !prev)} ><span>Filter Benefits</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`${benefitFilter ? "" : "rotate-180"} size-4 ml-auto`} >
+                                    <div className="flex items-center" onClick={() => setBenefitFilter(prev => !prev)} ><span>{benefit ? benefit : "Filter Benefit"}</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className={`${benefitFilter ? "" : "rotate-180"} size-4 ml-auto`} >
                                         <path fillRule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                                         </svg>
                                     </div>
