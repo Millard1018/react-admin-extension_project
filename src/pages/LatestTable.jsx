@@ -6,9 +6,9 @@ import Filter from "./Filter.jsx";
 
 function LatestTable() {
     const [selectedUser, setSelectedUser] = useState(null);
-    const [search, setSearch] = useState(null)
-    const [selectedBenefit, setSelectedBenefit] = useState(null);
-    const [selectedStatus, setSelectedStatus] = useState(null)
+    const [search, setSearch] = useState("")
+    const [selectedBenefit, setSelectedBenefit] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState("")
 
     if(selectedUser){
         document.getElementById("body").classList.add("overflow-hidden")

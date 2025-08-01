@@ -28,7 +28,7 @@ function Filter({tableType, onSearch, search, onDate, date, onSelectBenefit, ben
                         </div>
                         <div className="border p-0"></div>
                         <div className={`${statusFilter ? "" : "hidden"}  flex-col font-normal`}>
-                            <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("All")} >All Statuses</div>
+                            <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("All Statuses")} >All Statuses</div>
                             <div className="border p-0"></div>
                             <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("Available")} >Available</div>
                             <div className="border p-0"></div>
@@ -48,7 +48,7 @@ function Filter({tableType, onSearch, search, onDate, date, onSelectBenefit, ben
                             </div>
                             <div className="border p-0"></div>
                             <div className={`${statusFilter ? "" : "hidden"}  flex-col font-normal`}>
-                                <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("All")} >All Statuses</div>
+                                <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("All Statuses")} >All Statuses</div>
                                 <div className="border p-0"></div>
                                 <div className="status hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectStatus("Claimed")} >Claimed</div>
                                 <div className="border p-0"></div>
@@ -93,7 +93,7 @@ function Filter({tableType, onSearch, search, onDate, date, onSelectBenefit, ben
                                     </div>
                                     <div className="border p-0"></div>
                                     <div className={`${benefitFilter ? "" : "hidden"} flex-col font-normal`}>
-                                        <div className="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectBenefit("All")} >All Benefits</div>
+                                        <div className="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectBenefit("All Benefits")} >All Benefits</div>
                                         <div className="border p-0"></div>
                                         <div className="benefit hover:bg-slate-900 hover:text-white active:bg-blue-950" onClick={() => onSelectBenefit("Allowance Benefit")}>Allowance Benefit</div>
                                         <div className="border p-0"></div>

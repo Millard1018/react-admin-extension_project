@@ -1,10 +1,4 @@
-import { useState } from "react";
-
 function RecipientTable({data, onSelect, nameSearch, date, benefit, status}) {
-
-    const [statusCount, setStatusCount] = useState({
-        
-    })
 
     function trClassHelper(status) {
         if (status === "Available") {
@@ -89,18 +83,18 @@ function RecipientTable({data, onSelect, nameSearch, date, benefit, status}) {
         const matchSearch = row.getName().toLowerCase().includes(nameSearch ? nameSearch.toLowerCase().trim() : "");
 
         const stringDate = dateHelper(date);
-        const matchDate = stringDate === null ? true : row.getDate() === stringDate;
+        const matchDate = !stringDate ? true : row.getDate() === stringDate;
 
-        const matchBenefit = benefit === null || benefit === "All" ? true : row.getBenefit() === benefit;
+        const matchBenefit = !benefit || benefit === "All Benefits" ? true : row.getBenefit() === benefit;
 
-        const matchStatus = status === null || status === "All" ? true : row.getStatus() === status;
+        const matchStatus = !status || status === "All Statuses" ? true : row.getStatus() === status;
 
         return matchSearch && matchDate && matchBenefit && matchStatus;
     });
 
     return (
         <div>
-            <div class="overflow-y-auto lg:overflow-x-hidden overflow-x-auto h-[50vh] w-[87.1vw] relative mx-auto rounded-2xl">
+            <div className="overflow-y-auto lg:overflow-x-hidden overflow-x-auto h-[50vh] w-[87.1vw] relative mx-auto rounded-2xl">
                 <table className="border-collapse shadow-2xs bg-slate-50 w-[87vw] text-wrap font-poppins text-center">
                     <thead className="sticky top-0  bg-green-800 font-hanken text-white">
                         <tr className="p-0">
