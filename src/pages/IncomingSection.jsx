@@ -20,7 +20,7 @@ export default function IncomingSection({onChange}) {
                 <Filter tableType={"Incoming"} onSearch={setSearch} search={search} onSelectBenefit={setSelectedBenefit} benefit={selectedBenefit} />
                 <RecipientTable data={incomingTableData} onSelect={setSelectedUser} nameSearch={search} benefit={selectedBenefit} />
                 {selectedUser && (
-                    <RecipientModal data={selectedUser} onClose={() => setSelectedUser(null)}  tableData={incomingTableData} tableDataName={"incomingTableData"} onChange={onChange} />
+                    <RecipientModal selectedUserData={selectedUser} onClose={() => setSelectedUser(null)}  tableData={incomingTableData} tableDataName={"incomingTableData"} onChange={onChange} />
                 )}
             </div>
         </>

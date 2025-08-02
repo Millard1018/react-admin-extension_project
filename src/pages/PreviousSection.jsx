@@ -35,7 +35,7 @@ function PreviousSection({onChange}) {
             <Filter tableType={"Previous"} onSearch={setSearch} search={search} onDate={setSelectedDate} date={selectedDate} onSelectStatus={setSelectedStatus} status={selectedStatus} onSelectBenefit={setSelectedBenefit} benefit={selectedBenefit} />
             <RecipientTable data={prevTableData} onSelect={setSelectedUser} nameSearch={search} date={selectedDate} benefit={selectedBenefit} status={selectedStatus} />
             {selectedUser && (
-                <RecipientModal data={selectedUser} onClose={() => setSelectedUser(null)}  tableData={prevTableData} tableDataName={"prevTableData"} onChange={onChange} />
+                <RecipientModal selectedUserData={selectedUser} onClose={() => setSelectedUser(null)}  tableData={prevTableData} tableDataName={"prevTableData"} onChange={onChange} />
             )}
         </>
     )

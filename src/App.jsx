@@ -11,7 +11,7 @@ export default function App() {
         "latestTableData" : latestTableData,
         "prevTableData" : prevTableData,
         "incomingTableData" : incomingTableData
-    })
+    });
 
     return (
         <>
