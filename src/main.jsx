@@ -1,24 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 import './index.css'
-import Summary from './pages/Summary'
 import App from './App'
-import PreviousTable from './pages/PreviousTable'
+import { StrictMode } from 'react';
 
-createRoot(document.getElementById('Summary')).render(
-  <StrictMode>
-    <Summary />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById('LatestTable')).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
-
-createRoot(document.getElementById('PreviousTable')).render(
-  <StrictMode>
-    <PreviousTable />
-  </StrictMode>,
-)
+  </StrictMode>
+);

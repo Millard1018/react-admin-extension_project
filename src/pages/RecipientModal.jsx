@@ -1,19 +1,17 @@
 import { useState } from "react"
-import { latestTableData, prevTableData, incomingTableData } from "../adminData"
 
-function RecipientModal({data, onClose}) {
+function RecipientModal({selectedUserData, onClose, tableData, tableDataName, onChange}) {
 
     const [confirm, setConfirm] = useState(false);
 
     function claimHelper() {
         setConfirm(false);
 
-        const found = latestTableData.find(user => user.getTransactionNo() === data.getTransactionNo() && user.getStatus() === data.getStatus()) ||
-                    prevTableData.find(user => user.getTransactionNo() === data.getTransactionNo() && user.getStatus() === data.getStatus()) ||
-                    incomingTableData.find(user => user.getTransactionNo() === data.getTransactionNo() && user.getStatus() === data.getStatus());
-
+        const found = tableData.find(data => data.getTransactionNo() === selectedUserData.getTransactionNo() && data.getStatus() === selectedUserData.getStatus());
+        
         if (found) {
             found.setStatus("Claimed");
+            onChange(prev => ({...prev, [tableDataName] : tableData}));
         }
     }
 
@@ -25,7 +23,7 @@ function RecipientModal({data, onClose}) {
                 <div onClick={(event) => event.stopPropagation()} className="fixed top-[12vh] lg:top-[20vh] bottom-[15vh] lg:bottom-[20vh] left-[15vw] right-[15vw] flex flex-col lg:flex-row space-y-[1vh] z-60 lg:text-[1.2em]">
                     <div className="flex flex-1 flex-col space-y-[1vh]">
                         <div className="bg-white flex-1/5 rounded-2xl flex p-1">
-                            <div className=" flex-1 flex items-center pl-[1vw] font-bold">{data.getName()}</div>
+                            <div className=" flex-1 flex items-center pl-[1vw] font-bold">{selectedUserData.getName()}</div>
                             <div className="flex-1 flex items-center justify-center p-[2vw] lg:p-[1vw]">
                                 <div className="border-2 size-[25vw] md:size-[15vw] lg:size-[10vw] border-dashed rounded-2xl "></div>
                                 <button onClick={onClose} className="text-gray-500 hover:text-black text-2xl relative -top-[6vh] lg:-top-[8vh] -right-[1vw]">&times;</button>
@@ -37,14 +35,14 @@ function RecipientModal({data, onClose}) {
                             </div>
                             <div className="flex-2/3 flex">
                                 <div className="flex-1 space-y-1">
-                                    <p className="font-bold w-fit">ID <br/><span className="font-normal">{data.getID()}</span></p>
-                                    <p className="font-bold w-fit">Birthday <br/><span id="modalBirthday" className="font-normal">{data.getBirthday()}</span></p>
-                                    <p className="font-bold w-fit">Address <br/><span id="modalAddress" className="font-normal">{data.getAddress()}</span></p>
+                                    <p className="font-bold w-fit">ID <br/><span className="font-normal">{selectedUserData.getID()}</span></p>
+                                    <p className="font-bold w-fit">Birthday <br/><span id="modalBirthday" className="font-normal">{selectedUserData.getBirthday()}</span></p>
+                                    <p className="font-bold w-fit">Address <br/><span id="modalAddress" className="font-normal">{selectedUserData.getAddress()}</span></p>
                                 </div>
                                 <div className="flex-1 space-y-1">
-                                    <p className="font-bold w-fit">Contact <br/><span id="modalContact" className="font-normal">{data.getContact()}</span></p>
-                                    <p className="font-bold w-fit">Disability <br/><span id="modalDisability" className="font-normal">{data.getDisability()}</span></p>
-                                    <p className="font-bold w-fit">Status <br/><span id="modalStatus" className="font-normal">{data.getStatus()}</span></p>
+                                    <p className="font-bold w-fit">Contact <br/><span id="modalContact" className="font-normal">{selectedUserData.getContact()}</span></p>
+                                    <p className="font-bold w-fit">Disability <br/><span id="modalDisability" className="font-normal">{selectedUserData.getDisability()}</span></p>
+                                    <p className="font-bold w-fit">Status <br/><span id="modalStatus" className="font-normal">{selectedUserData.getStatus()}</span></p>
                                 </div>
                             </div>
                         </div>  
@@ -57,18 +55,18 @@ function RecipientModal({data, onClose}) {
                             </div>
                             <div className="flex-2/3 flex">
                                 <div className="flex-1">
-                                    <p className="font-bold w-fit">Transaction No<br/><span id="modalTransactionNo" className="font-normal">{data.getTransactionNo()}</span></p>
-                                    <p className="font-bold w-fit">Benefit Name <br/><span id="modalBenefit" className="font-normal">{data.getBenefit()}</span></p>
-                                    <p className="font-bold w-fit">Type <br/><span id="modalType" className="font-normal">{data.getType()}</span></p>
+                                    <p className="font-bold w-fit">Transaction No<br/><span id="modalTransactionNo" className="font-normal">{selectedUserData.getTransactionNo()}</span></p>
+                                    <p className="font-bold w-fit">Benefit Name <br/><span id="modalBenefit" className="font-normal">{selectedUserData.getBenefit()}</span></p>
+                                    <p className="font-bold w-fit">Type <br/><span id="modalType" className="font-normal">{selectedUserData.getType()}</span></p>
                                 </div>
                                 <div className="flex-1">
-                                    <p className="font-bold w-fit"><span id="changeClaim">Date of Claim</span><br/><span id="modalDate" className="font-normal ">{data.getDate()}</span></p>
-                                    <p className="font-bold w-fit">Amount <br/><span id="modalAmount" className="font-normal ">{data.getAmount()}</span></p>
+                                    <p className="font-bold w-fit"><span id="changeClaim">Date of Claim</span><br/><span id="modalDate" className="font-normal ">{selectedUserData.getDate()}</span></p>
+                                    <p className="font-bold w-fit">Amount <br/><span id="modalAmount" className="font-normal ">{selectedUserData.getAmount()}</span></p>
                                 </div> 
                             </div>
                         </div>
                         <div className="flex-1 flex justify-end items-end">
-                            <button onClick={() => setConfirm(true)} className={`${data.getStatus() === "Available" || data.getStatus() === "Unclaimed" ? "" : "hidden"} bg-green-800 text-start text-slate-100 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-white active:text-slate-900`}>Claim</button>
+                            <button onClick={() => setConfirm(true)} className={`${selectedUserData.getStatus() === "Available" || selectedUserData.getStatus() === "Unclaimed" ? "" : "hidden"} bg-green-800 text-start text-slate-100 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-white active:text-slate-900`}>Claim</button>
                             <button className="bg-slate-200 text-start text-green-900 rounded-2xl p-1 px-2 m-1 hover:opacity-70 active:bg-green-800 active:text-white" onClick={onClose}>Cancel</button>
                         </div>
                     </div>
@@ -82,7 +80,7 @@ function RecipientModal({data, onClose}) {
                             </svg>
                         </div>
                         <div>
-                            <p className="mt-[1vh] font-bold">Confirm claim for <br/><span className="flex justify-center">{data.getName()}</span></p>
+                            <p className="mt-[1vh] font-bold">Confirm claim for <br/><span className="flex justify-center">{selectedUserData.getName()}</span></p>
                         </div>
                         <div className="mt-[2vh] flex w-full justify-between px-[6vw] xl:px-[8vw]">
                             <button className="border-2 border-gray-500 rounded-xl p-1 hover:opacity-60 active:opacity-100" onClick={() => setConfirm(false)}>Cancel</button>
