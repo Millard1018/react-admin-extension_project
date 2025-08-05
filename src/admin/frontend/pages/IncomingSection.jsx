@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { incomingTableData } from "../adminData.js";
-import RecipientModal from "./RecipientModal.jsx";
-import RecipientTable from "./RecipientTable.jsx";
-import Filter from "./Filter.jsx";
+import { incomingTableData } from "../js/adminData.js";
+import RecipientModal from "../components/RecipientModal.jsx";
+import RecipientTable from "../components/RecipientTable.jsx";
+import Filter from "../components/Filter.jsx";
 
 export default function IncomingSection({onChange}) {
     const [selectedUser, setSelectedUser] = useState(null);

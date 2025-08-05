@@ -58,7 +58,7 @@ function Summary({wholeData}) {
                                         <p id="Available" className="text-3xl">{statusCount.Available}</p> 
                                     </div>
                                     <div className="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
-                                        <img src="status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
+                                        <img src="/assets/status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ function Summary({wholeData}) {
                                         <p id="Unavailable" className="text-3xl">{statusCount.Unavailable}</p> 
                                     </div>
                                     <div className="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
-                                        <img src="status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
+                                        <img src="/assets/status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
                                     </div>
                                 </div>
                             </div>  
@@ -100,7 +100,7 @@ function Summary({wholeData}) {
                                         <p id="Delayed" className="text-3xl">{statusCount.Delayed}</p> 
                                     </div>
                                     <div className="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
-                                        <img src="status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
+                                        <img src="/assets/status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@ function Summary({wholeData}) {
                                         <p id="Unclaimed" className="text-3xl">{statusCount.Unclaimed}</p> 
                                     </div>
                                     <div className="absolute lg:-right-[5vw] -right-[12vw] rotate-330 ">
-                                        <img src="status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
+                                        <img src="/assets/status-overlay.png" alt="decorative" className="lg:w-[15vw] w-[30vw] grayscale-100 opacity-30"/>
                                     </div>
                                 </div>
                             </div>

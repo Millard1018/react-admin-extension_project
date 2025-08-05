@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { latestTableData, prevTableData, incomingTableData } from "./adminData.js";
+import { latestTableData, prevTableData, incomingTableData } from "./js/adminData.js";
 import Summary from "./pages/Summary.jsx";
 import LatestSection from "./pages/LatestSection.jsx";
 import PreviousSection from "./pages/PreviousSection.jsx";

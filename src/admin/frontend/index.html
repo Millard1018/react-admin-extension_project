@@ -3,17 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./src/index.css">
-        <script type="module" src="./src/main.jsx"></script>
-        <script type="module" src="./src/animation.js" defer></script>
+        <link rel="stylesheet" href="./css/index.css">
+        <script type="module" src="./main.jsx"></script>
+        <script type="module" src="./js/animation.js" defer></script>
         
     </head>
-    <body id="body" class = " bg-slate-50 font-poppins overflow-x-hidden selection:bg-slate-900 selection:text-slate-100">
+    <body id="body" class = "bg-slate-50 font-poppins overflow-x-hidden selection:bg-slate-900 selection:text-slate-100">
         <header>
             <nav class = "z-50 fixed flex justify-end w-screen">
                 <div>
                     <div class = " lg:hidden flex justify-center items-center h-10 w-10 mt-9 mr-6 md:mr-10 md:mt-15 rounded-xl sm:mr-7 sm:mt-12 sm:w-13 sm:h-13 bg-slate-900/20">
-                        <svg viewBox = "2 2 20 20" id = "hamburgerMenu" src= "bars-3.svg" class=" z-50 size-6 sm:size-8 relative stroke-slate-200 stroke-3 ">
+                        <svg viewBox = "2 2 20 20" id = "hamburgerMenu" src= "./assets/bars-3.svg" class=" z-50 size-6 sm:size-8 relative stroke-slate-200 stroke-3 ">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.90 h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </div>
@@ -21,12 +21,12 @@
                     <div id = "navMenu" class = "lg:shadow-xl self-center lg:top-10 xl:top-5 xl:h-10  lg:justify-around lg:items-center lg:ml-12 lg:mr-10 xl:mr-10 xl:ml-17 lg:w-[90vw]  lg:visible lg:rounded-4xl lg:flex lg:bg-slate-50/70 lg:hover:bg-slate-50 lg:h-20  invisible z-50 w-screen left-0 h-[70vh] fixed top-0 text-slate-200 sm:rounded-b-3xl rounded-b-2xl bg-green-800">
                         <div class = "flex ">
                             <h1 class = "flex lg:top-0 lg:text-slate-900 md:text-3xl lg:text-xl justify-self-start left-[9vw] lg:left-0 sm:left-[8vw] md:left-[9vw] top-[7vh] relative font-rubik text-2xl font-semibold tracking-tighter">
-                                <div class="relative -top-[0.5vh]"><img src="kanluran-logo.png" alt="" class="size-8 lg:hidden"></div>
+                                <div class="relative -top-[0.5vh]"><img src="./assets/kanluran-logo.png" alt="" class="size-8 lg:hidden"></div>
                                 <div class="">
                                     <span class = "text-slate-900 lg:hidden bg-slate-200  font-poppins font-semibold text-[7px] md:text-[2xl] tracking-[0.5vw] absolute -top-[1vh] ">
                                         BARANGAY
                                     </span>
-                                    <span class="flex items-center"><img src="kanluran-logo.png" alt="" class="size-7 mr-2 lg:flex hidden">Kanluran</span>
+                                    <span class="flex items-center"><img src="./assets/kanluran-logo.png" alt="" class="size-7 mr-2 lg:flex hidden">Kanluran</span>
                                 </div>
                                 
                             </h1>
@@ -55,7 +55,7 @@
                             </li>
                             <li class="md:hidden group/profile">
                                 <div id = "profile" class = "w-40 flex relative items-center">
-                                    <img src  = "heroImage.png" class = "size-8 rounded-full">
+                                    <img src  = "./assets/heroImage.png" class = "size-8 rounded-full">
                                     <h2 class = "text-slate-200 truncate  ml-[1vw] ">Admin</h2>
                                 </div>
                                 <div class = "lg:hidden group-hover/profile:bg-slate-200 w-[80vw] h-0.5 bg-slate-200/35"></div>
@@ -65,7 +65,7 @@
                         <div class = "lg:flex flex-row relative items-center hidden">
                             <button onclick="settings()" class="ml-auto lg:flex flex-row relative items-center">
                                 <h2 class = "text-slate-900 truncate">Admin</h2>
-                                <img src  = "heroImage.png" class = " ml-[1vw] size-8 rounded-full">
+                                <img src  = "./assets/heroImage.png" class = " ml-[1vw] size-8 rounded-full">
                             </button>
                         </div>
                         
@@ -109,8 +109,8 @@
             <div id="homeSection" class = "sectionContainer md:h-screen">
                 <!--Hero Image-->
                 <div class = "-z-10 fixed top-0 ">
-                    <img src = "heroImage.png" class = "w-screen  h-[120vh] md:object-[-90vh_-8vh] object-[-107vh_-8vh] xl:object-center sm:object-[-30vw_-8vh] object-cover">
-                    <img src="heroImageoverlay.png" alt=""  class ="w-screen h-screen absolute inset-0 opacity-60">
+                    <img src = "./assets/heroImage.png" class = "w-screen  h-[120vh] md:object-[-90vh_-8vh] object-[-107vh_-8vh] xl:object-center sm:object-[-30vw_-8vh] object-cover">
+                    <img src="./assets/heroImageoverlay.png" alt=""  class ="w-screen h-screen absolute inset-0 opacity-60">
                     <div class = "bg-slate-100/20 md:bg-linear-to-t from-green-100/60 to-green-50/10 w-screen h-screen absolute top-0"></div>
                 </div>
                 <div class = "relative sm:h-[61vh] md:h-[25vh] h-[60vh]"></div>
@@ -133,7 +133,7 @@
             </div>
         </header>
 
-        <main class="relative -top-[0.1vh] xl:top-[7vh] lg:top-[7vh] md:top-[7vh] sm:top-[0vh]  bg-slate-100" id="root">
+        <main class="relative -top-[0.1vh] xl:top-[7vh] lg:top-[7vh] md:top-[7vh] sm:top-[0vh] bg-slate-100" id="root">
         </main>
 
         <footer id="aboutUs" class ="sectionContainer text-slate-100 bg-green-800 overflow-y-visible relative">
@@ -141,11 +141,11 @@
             <div class = "flex flex-col md:flex-row text-poppins font-semibold lg:mx-[8vw] mx-[6vw] relative lg:-top-[1vh] top-[4vh] xl:pt-[10vh] lg:pt-[6vh] md:pt-[5vh] md:pb-5 pb-[3vh] mb-[3vh]">
                 
                 <div class="flex flex-1 lg:items-center justify-center">
-                    <img src="kanluran-logo.png" alt="" class="size-30 lg:mr-[9vw] bg-white rounded-full lg:mb-0 mb-[2vh]">
+                    <img src="./assets/kanluran-logo.png" alt="" class="md:size-[10vw] size-[30vw] lg:mr-[9vw] bg-white rounded-full lg:mb-0 mb-[2vh]">
                 </div>
-                <div class="flex flex-col flex-1 text-[2em]">
+                <div class="flex flex-col flex-1 text-[1.9em]">
                     <div class="flex items-start w-full relative font-hanken">CONTACT US</div>
-                    <div class="flex flex-col text-[0.4em] mt-[3vh]">
+                    <div class="flex flex-col text-[0.4em] mt-[1vh]">
                         <div class="flex items-center flex-1 pr-[2vw]">
                             <div>
                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="lg:size-[2.5vw] sm:size-[4vw] size-[8vw] rounded-full bg-slate p-[0.3em] text-slate-900 bg-white">
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex-2 flex md:mt-0 mt-[5vh]">
+                <div class="flex-2 flex md:mt-0 mt-[5vh] ml-[2vw]">
                     <div class="flex-1 flex-col space-y-[1vh] lg:mx-[3vw]">
                         <div class="font-hanken text-[1.3em]">GOVERMENT LINKS</div>
                         <div class="text-[0.8em] w-fit">
@@ -257,25 +257,25 @@
             </div>
             <div class="flex items-center h-[10vh] bg-green-900">
                 <div class="flex items-center flex-1 pl-[5vw] space-x-[3vw]">
-                    <h1 class = "top-2  relative font-hanken text-2xl md:text-3xl font-semibold tracking-tighter">
-                    <span class = "text-slate-900 bg-slate-100 font-poppins font-semibold text-[7px] md:text-[10px] tracking-[0.5vw] absolute -top-[1vh] ">
-                        BARANGAY
-                    </span>
-                    Kanluran
+                    <h1 class = " relative top-[1vh] font-hanken text-2xl md:text-3xl font-semibold tracking-tighter">
+                        <span class="absolute -top-[1.2vh] w-fit text-xs lg:tracking-[0.5em] tracking-[0.3em] bg-white text-black" >
+                            BARANGAY
+                        </span>
+                        Kanluran
                     </h1>
                     <div>
                        <a target = "_blank" href = "https://www.facebook.com/profile.php?id=61555148279432">
-                            <img src = "Facebook_Logo_Secondary.png" class = "size-4 md:size-8" >
+                            <img src = "./assets/Facebook_Logo_Secondary.png" class = "size-4 md:size-8" >
                         </a> 
                     </div>
                     <div>
                        <a target = "_blank" href = "https://www.facebook.com/messages/t/203853872808930">
-                            <img src = "Messenger_Icon_Secondary_White.png" class = " md:size-8 size-4">
+                            <img src = "./assets/Messenger_Icon_Secondary_White.png" class = " md:size-8 size-4">
                         </a> 
                     </div>
                     <div>
                        <a target = "_blank" href = "mailto:brgykanluran2024@gmail.com">
-                        <img src = "gmail.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class = "md:size-9.5 size-6 brightness-4000 ">
+                        <img src = "./assets/gmail.webp=s48-fcrop64=1,00000000ffffffff-rw.webp" class = "md:size-9.5 size-6 brightness-4000 ">
                         </a> 
                     </div>
                     
